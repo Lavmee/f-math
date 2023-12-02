@@ -39,12 +39,6 @@ fun main() {
     println(listOf(plusFractionResult, minusFractionResult, multiplyFractionResult, divideFractionResult).sorted())
     println()
 
-    val mutableList = mutableListOf("")
-    val immutableList = listOf("")
-
-    val result = mutableList == immutableList
-    println(result)
-
     val fractionFromDoubleOne = 1.0f.toFraction()
     val fractionFromDoubleHalf = 0.000005f.toFraction()
     println("1.0 = $fractionFromDoubleOne")
