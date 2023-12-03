@@ -8,6 +8,7 @@ import tech.annexflow.fmath.core.ArithmeticalFraction
 import tech.annexflow.fmath.core.Fraction
 import tech.annexflow.fmath.core.MutableArithmeticalFraction
 import tech.annexflow.fmath.core.util.greatestCommonDivisor
+import kotlin.math.abs
 
 /**
  * An open class representing a mutable arithmetical fraction of integers.
@@ -82,6 +83,10 @@ internal class MutableIntFraction(numerator: Int, denominator: Int) : MutableAri
         if (gcd != 1) {
             this.mutableNumerator /= gcd
             this.mutableDenominator /= gcd
+        }
+        if (this.numerator < 0 && this.denominator < 0) {
+            this.mutableNumerator = abs(this.numerator)
+            this.mutableDenominator = abs(this.denominator)
         }
     }
 

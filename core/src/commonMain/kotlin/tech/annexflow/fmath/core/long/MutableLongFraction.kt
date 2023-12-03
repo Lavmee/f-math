@@ -8,6 +8,7 @@ import tech.annexflow.fmath.core.ArithmeticalFraction
 import tech.annexflow.fmath.core.Fraction
 import tech.annexflow.fmath.core.MutableArithmeticalFraction
 import tech.annexflow.fmath.core.util.greatestCommonDivisor
+import kotlin.math.abs
 
 /**
  * An open class representing a mutable arithmetical fraction of long-values.
@@ -82,6 +83,10 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
         if (gcd != 1L) {
             this.mutableNumerator /= gcd
             this.mutableDenominator /= gcd
+        }
+        if (this.numerator < 0 && this.denominator < 0) {
+            this.mutableNumerator = abs(this.numerator)
+            this.mutableDenominator = abs(this.denominator)
         }
     }
 
