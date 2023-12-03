@@ -30,8 +30,9 @@ fun mutableFractionOf(
     isAutoReducing: Boolean = true,
 ): MutableArithmeticalFraction<Long, Long> {
     require(value = denominator != 0L) { "Denominator is zero!" }
-    return if (isAutoReducing) AutoReduceMutableLongFraction(numerator = numerator, denominator = denominator)
-    else MutableLongFraction(numerator = numerator, denominator = denominator)
+    val mutableFraction = MutableLongFraction(numerator = numerator, denominator = denominator)
+    return if (isAutoReducing) AutoReduceMutableLongFraction(mutableFraction = mutableFraction)
+    else mutableFraction
 }
 
 /**
