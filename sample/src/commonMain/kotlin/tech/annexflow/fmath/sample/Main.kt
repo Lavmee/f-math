@@ -1,10 +1,12 @@
 package tech.annexflow.fmath.sample
 
-import tech.annexflow.fmath.core.integer.exponentiated
+import tech.annexflow.fmath.core.ExperimentalFMathApi
 import tech.annexflow.fmath.core.integer.floatValue
+import tech.annexflow.fmath.core.integer.exponentiated
 import tech.annexflow.fmath.core.integer.fractionOf
 import tech.annexflow.fmath.core.integer.mutableFractionOf
 import tech.annexflow.fmath.core.integer.negatored
+import tech.annexflow.fmath.core.integer.reduced
 import tech.annexflow.fmath.core.integer.toFraction
 import tech.annexflow.fmath.core.integer.toMutableFraction
 
@@ -35,10 +37,4 @@ fun main() {
     println("$firstFraction^3 = $powedFractionResult")
     println(listOf(plusFractionResult, minusFractionResult, multiplyFractionResult, divideFractionResult).sorted())
     println()
-
-    val mutableList = mutableListOf("")
-    val immutableList = listOf("")
-
-    val result = mutableList == immutableList
-    println(result)
 }
