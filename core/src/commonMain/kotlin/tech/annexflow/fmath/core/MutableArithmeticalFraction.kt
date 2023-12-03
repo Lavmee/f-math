@@ -6,8 +6,7 @@ package tech.annexflow.fmath.core
  * @param Numerator The type of the numerator.
  * @param Denominator The type of the denominator.
  */
-interface MutableArithmeticalFraction<Numerator, Denominator> :
-    ArithmeticalFraction<Numerator, Denominator>,
+interface MutableArithmeticalFraction<Numerator, Denominator> : ArithmeticalFraction<Numerator, Denominator>,
     Reducible {
 
     /**
@@ -21,12 +20,23 @@ interface MutableArithmeticalFraction<Numerator, Denominator> :
     var mutableDenominator: Denominator
 
     /**
+     * The current numerator of the fraction.
+     */
+    override val numerator: Numerator get() = mutableNumerator
+
+    /**
+     * The current denominator of the fraction.
+     */
+    override val denominator: Denominator get() = mutableDenominator
+
+    /**
      * Subtracts another arithmetical fraction and returns a mutable result.
      *
      * @param other The arithmetical fraction to subtract.
      * @return A mutable arithmetical fraction representing the result of the subtraction.
      */
-    override operator fun minus(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator>
+    override operator fun minus(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator> =
+        copy().apply { this -= other }
 
     /**
      * Subtracts another fraction in place, modifying the current mutable fraction.
@@ -41,7 +51,8 @@ interface MutableArithmeticalFraction<Numerator, Denominator> :
      * @param other The arithmetical fraction to add.
      * @return A mutable arithmetical fraction representing the result of the addition.
      */
-    override operator fun plus(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator>
+    override operator fun plus(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator> =
+        copy().apply { this += other }
 
     /**
      * Adds another fraction in place, modifying the current mutable fraction.
@@ -56,7 +67,8 @@ interface MutableArithmeticalFraction<Numerator, Denominator> :
      * @param other The arithmetical fraction to multiply by.
      * @return A mutable arithmetical fraction representing the result of the multiplication.
      */
-    override operator fun times(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator>
+    override operator fun times(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator> =
+        copy().apply { this *= other }
 
     /**
      * Multiplies by another fraction in place, modifying the current mutable fraction.
@@ -71,7 +83,8 @@ interface MutableArithmeticalFraction<Numerator, Denominator> :
      * @param other The arithmetical fraction to divide by.
      * @return A mutable arithmetical fraction representing the result of the division.
      */
-    override operator fun div(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator>
+    override operator fun div(other: ArithmeticalFraction<Numerator, Denominator>): MutableArithmeticalFraction<Numerator, Denominator> =
+        copy().apply { this /= other }
 
     /**
      * Divides by another fraction in place, modifying the current mutable fraction.

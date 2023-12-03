@@ -27,19 +27,11 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
     override var mutableDenominator: Long = denominator
 
     /**
-     * The current numerator of the fraction.
-     */
-    override val numerator: Long get() = mutableNumerator
-
-    /**
-     * The current denominator of the fraction.
-     */
-    override val denominator: Long get() = mutableDenominator
-
-    /**
      * The sign of the fraction: 0 for zero, 1 for positive, -1 for negative.
      */
-    override val sign: Byte get() = if (numerator == 0L) 0 else if (numerator * denominator > 0) 1 else -1
+    override val sign: Byte
+        get() = if (numerator == 0L) 0
+        else if ((numerator > 0 && denominator > 0) || (numerator < 0 && denominator < 0)) 1 else -1
 
     /**
      * Subtracts another fraction in place, modifying the current mutable fraction.
@@ -56,15 +48,6 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
     }
 
     /**
-     * Subtracts another arithmetical fraction and returns a mutable result.
-     *
-     * @param other The arithmetical fraction to subtract.
-     * @return A mutable arithmetical fraction representing the result of the subtraction.
-     */
-    override fun minus(other: ArithmeticalFraction<Long, Long>): MutableArithmeticalFraction<Long, Long> =
-        copy().apply { this -= other }
-
-    /**
      * Divides by another fraction in place, modifying the current mutable fraction.
      *
      * @param other The fraction to divide by.
@@ -75,15 +58,6 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
     }
 
     /**
-     * Divides by another arithmetical fraction and returns a mutable result.
-     *
-     * @param other The arithmetical fraction to divide by.
-     * @return A mutable arithmetical fraction representing the result of the division.
-     */
-    override fun div(other: ArithmeticalFraction<Long, Long>): MutableArithmeticalFraction<Long, Long> =
-        copy().apply { this /= other }
-
-    /**
      * Multiplies by another fraction in place, modifying the current mutable fraction.
      *
      * @param other The fraction to multiply by.
@@ -92,15 +66,6 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
         this.mutableNumerator *= other.numerator
         this.mutableDenominator *= other.denominator
     }
-
-    /**
-     * Multiplies by another arithmetical fraction and returns a mutable result.
-     *
-     * @param other The arithmetical fraction to multiply by.
-     * @return A mutable arithmetical fraction representing the result of the multiplication.
-     */
-    override fun times(other: ArithmeticalFraction<Long, Long>): MutableArithmeticalFraction<Long, Long> =
-        copy().apply { this *= other }
 
     /**
      * Adds another fraction in place, modifying the current mutable fraction.
@@ -115,15 +80,6 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
             this.mutableDenominator *= other.denominator
         }
     }
-
-    /**
-     * Adds another arithmetical fraction and returns a mutable result.
-     *
-     * @param other The arithmetical fraction to add.
-     * @return A mutable arithmetical fraction representing the result of the addition.
-     */
-    override fun plus(other: ArithmeticalFraction<Long, Long>): MutableArithmeticalFraction<Long, Long> =
-        copy().apply { this += other }
 
     /**
      * Reduces the fraction to its simplest form by dividing both numerator and denominator by their greatest common divisor.
