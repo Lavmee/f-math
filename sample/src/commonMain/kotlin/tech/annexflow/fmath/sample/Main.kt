@@ -1,12 +1,10 @@
 package tech.annexflow.fmath.sample
 
-import tech.annexflow.fmath.core.ExperimentalFMathApi
-import tech.annexflow.fmath.core.integer.floatValue
 import tech.annexflow.fmath.core.integer.exponentiated
+import tech.annexflow.fmath.core.integer.floatValue
 import tech.annexflow.fmath.core.integer.fractionOf
 import tech.annexflow.fmath.core.integer.mutableFractionOf
 import tech.annexflow.fmath.core.integer.negatored
-import tech.annexflow.fmath.core.integer.reduced
 import tech.annexflow.fmath.core.integer.toFraction
 import tech.annexflow.fmath.core.integer.toMutableFraction
 
@@ -14,7 +12,6 @@ import tech.annexflow.fmath.core.integer.toMutableFraction
  * Copyright 2023, @lavmee and the project contributors
  **/
 
-@OptIn(ExperimentalFMathApi::class)
 fun main() {
     val firstFraction = mutableFractionOf(2, 3)
     firstFraction+=(3 to 18).toFraction()
@@ -44,10 +41,4 @@ fun main() {
 
     val result = mutableList == immutableList
     println(result)
-
-    val fractionFromDoubleOne = 1.0f.toFraction()
-    val fractionFromDoubleHalf = 0.000005f.toFraction()
-    println("1.0 = $fractionFromDoubleOne")
-    println("0.5 = $fractionFromDoubleHalf")
-    println("0.5 = ${fractionFromDoubleHalf.reduced()}")
 }

@@ -5,12 +5,9 @@
 package tech.annexflow.fmath.core.integer
 
 import tech.annexflow.fmath.core.ArithmeticalFraction
-import tech.annexflow.fmath.core.ExperimentalFMathApi
 import tech.annexflow.fmath.core.Fraction
 import tech.annexflow.fmath.core.MutableArithmeticalFraction
 import tech.annexflow.fmath.core.toImmutableFraction
-import tech.annexflow.fmath.core.util.toFixedMaxString
-import tech.annexflow.fmath.core.util.unpackValues
 import kotlin.math.pow
 
 /**
@@ -159,24 +156,6 @@ fun Pair<Int, Int>.toFraction(isAutoReducing: Boolean = true): ArithmeticalFract
  */
 fun Pair<Int, Int>.toMutableFraction(isAutoReducing: Boolean = true): ArithmeticalFraction<Int, Int> =
     mutableFractionOf(numerator = this.first, denominator = this.second, isAutoReducing = isAutoReducing)
-
-/**
- * Converts a float to an immutable arithmetical fraction.
- *
- * @receiver The float to convert.
- * @param isAutoReducing Flag indicating whether the fraction should auto-reduce.
- * @return An immutable arithmetical fraction representing the float.
- */
-@ExperimentalFMathApi
-fun Float.toFraction(isAutoReducing: Boolean = true): ArithmeticalFraction<Int, Int> {
-    val (integerPart, fractionalPart, fractionalPartLength) = this.unpackValues()
-    // Fractional part is zero, return integer as fraction
-    if (fractionalPart == 0) return integerPart.toFraction(isAutoReducing = isAutoReducing)
-
-    val denominator: Int = 10.0.pow(fractionalPartLength).toInt()
-    val numerator = (integerPart * denominator) + fractionalPart
-    return fractionOf(numerator = numerator, denominator = denominator, isAutoReducing = isAutoReducing)
-}
 
 /**
  * Extension property that calculates and returns the float value of an immutable arithmetical fraction.
