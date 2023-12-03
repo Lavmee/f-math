@@ -179,8 +179,8 @@ internal open class MutableIntFraction(numerator: Int, denominator: Int) : Mutab
      * @return The generated hash code based on the values of mutableNumerator and mutableDenominator.
      */
     override fun hashCode(): Int {
-        var result = mutableNumerator
-        result = 31 * result + mutableDenominator
+        var result = numerator
+        result = 31 * result + denominator
         return result
     }
 }
