@@ -37,12 +37,3 @@ internal class ReadOnlyFraction<Numerator, Denominator>(
      */
     override fun hashCode(): Int = mutableFraction.hashCode()
 }
-
-/**
- * Extension function to convert a mutable arithmetical fraction to an immutable (read-only) arithmetical fraction.
- *
- * @receiver The mutable arithmetical fraction to convert.
- * @return An immutable (read-only) arithmetical fraction.
- */
-fun <Numerator, Denominator> MutableArithmeticalFraction<Numerator, Denominator>.toImmutableFraction():
-        ArithmeticalFraction<Numerator, Denominator> = ReadOnlyFraction(mutableFraction = this.copy())
