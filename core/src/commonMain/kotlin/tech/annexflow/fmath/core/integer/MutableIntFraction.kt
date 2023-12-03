@@ -15,7 +15,7 @@ import tech.annexflow.fmath.core.util.greatestCommonDivisor
  * @param numerator The initial numerator of the fraction.
  * @param denominator The initial denominator of the fraction (must not be zero).
  */
-internal open class MutableIntFraction(numerator: Int, denominator: Int) : MutableArithmeticalFraction<Int, Int> {
+internal class MutableIntFraction(numerator: Int, denominator: Int) : MutableArithmeticalFraction<Int, Int> {
     /**
      * The mutable numerator of the fraction.
      */
