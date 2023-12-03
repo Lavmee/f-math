@@ -5,13 +5,12 @@ import tech.annexflow.fmath.core.toImmutableFraction
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
-import kotlin.test.assertNotEquals
 
 /**
  * Copyright 2023, @lavmee and the project contributors
  **/
 
-class FractionEquality {
+class IntFractionEquality {
 
     @Test
     fun basic() {
