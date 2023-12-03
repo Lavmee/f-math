@@ -5,7 +5,7 @@
 package tech.annexflow.fmath.core
 
 /**
- * Represents a generic interface for fractions, with a numerator, denominator, and sign.
+ * Represents a generic interface for fractions, with a numerator, denominator.
  *
  * @param Numerator The type of the numerator.
  * @param Denominator The type of the denominator.
@@ -13,7 +13,6 @@ package tech.annexflow.fmath.core
 interface Fraction<Numerator, Denominator> {
     val numerator: Numerator
     val denominator: Denominator
-    val sign: Byte // Sign of the fraction: 1 for positive, -1 for negative, 0 for zero.
 
     /**
      * Returns a string representation of the fraction.

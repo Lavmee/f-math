@@ -27,13 +27,6 @@ internal class MutableLongFraction(numerator: Long, denominator: Long) : Mutable
     override var mutableDenominator: Long = denominator
 
     /**
-     * The sign of the fraction: 0 for zero, 1 for positive, -1 for negative.
-     */
-    override val sign: Byte
-        get() = if (numerator == 0L) 0
-        else if ((numerator > 0 && denominator > 0) || (numerator < 0 && denominator < 0)) 1 else -1
-
-    /**
      * Subtracts another fraction in place, modifying the current mutable fraction.
      *
      * @param other The fraction to subtract.
