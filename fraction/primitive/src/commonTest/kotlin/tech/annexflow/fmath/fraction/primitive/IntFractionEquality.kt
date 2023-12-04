@@ -2,6 +2,7 @@
 
 package tech.annexflow.fmath.fraction.primitive
 
+import tech.annexflow.fmath.fraction.core.MutableArithmeticalFraction
 import tech.annexflow.fmath.fraction.core.ReadOnlyArithmeticalFraction
 import tech.annexflow.fmath.fraction.core.toImmutableFraction
 import kotlin.test.Test
@@ -43,5 +44,6 @@ class IntFractionEquality {
 
         immutableFraction as ReadOnlyArithmeticalFraction
         assertFalse { mutableFraction === immutableFraction.mutableFraction }
+        assertFalse { immutableFraction is MutableArithmeticalFraction<Int, Int> }
     }
 }
