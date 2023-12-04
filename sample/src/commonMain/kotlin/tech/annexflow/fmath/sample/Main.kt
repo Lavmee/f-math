@@ -1,12 +1,12 @@
 package tech.annexflow.fmath.sample
 
-import tech.annexflow.fmath.core.integer.exponentiated
-import tech.annexflow.fmath.core.integer.floatValue
-import tech.annexflow.fmath.core.integer.fractionOf
-import tech.annexflow.fmath.core.integer.mutableFractionOf
-import tech.annexflow.fmath.core.integer.negatored
-import tech.annexflow.fmath.core.integer.toFraction
-import tech.annexflow.fmath.core.integer.toMutableFraction
+import tech.annexflow.fmath.fraction.primitive.exponentiated
+import tech.annexflow.fmath.fraction.primitive.floatValue
+import tech.annexflow.fmath.fraction.primitive.fractionOf
+import tech.annexflow.fmath.fraction.primitive.mutableFractionOf
+import tech.annexflow.fmath.fraction.primitive.negatored
+import tech.annexflow.fmath.fraction.primitive.toFraction
+import tech.annexflow.fmath.fraction.primitive.toMutableFraction
 
 /**
  * Copyright 2023, @lavmee and the project contributors

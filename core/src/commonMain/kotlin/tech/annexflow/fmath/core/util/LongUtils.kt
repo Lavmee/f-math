@@ -11,7 +11,7 @@ package tech.annexflow.fmath.core.util
  * @param b The second long-value.
  * @return The greatest common divisor of the two long-values.
  */
-internal tailrec fun greatestCommonDivisor(a: Long, b: Long): Long {
+tailrec fun greatestCommonDivisor(a: Long, b: Long): Long {
     if (b == 0L) return a
     return greatestCommonDivisor(a = b, b = a % b)
 }

@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 }
 
 include(":core")
+include(":fraction:core")
+include(":fraction:primitive")
 include(":sample")

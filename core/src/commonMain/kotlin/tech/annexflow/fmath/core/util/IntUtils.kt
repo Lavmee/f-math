@@ -11,7 +11,7 @@ package tech.annexflow.fmath.core.util
  * @param b The second integer.
  * @return The greatest common divisor of the two integers.
  */
-internal tailrec fun greatestCommonDivisor(a: Int, b: Int): Int {
+tailrec fun greatestCommonDivisor(a: Int, b: Int): Int {
     if (b == 0) return a
     return greatestCommonDivisor(a = b, b = a % b)
 }
@@ -23,6 +23,6 @@ internal tailrec fun greatestCommonDivisor(a: Int, b: Int): Int {
  * @param b The second integer.
  * @return The least common multiple of the two integers.
  */
-internal fun leastCommonMultiple(a: Int, b: Int): Int {
+fun leastCommonMultiple(a: Int, b: Int): Int {
     return a / greatestCommonDivisor(a = a, b =b) * b
 }
