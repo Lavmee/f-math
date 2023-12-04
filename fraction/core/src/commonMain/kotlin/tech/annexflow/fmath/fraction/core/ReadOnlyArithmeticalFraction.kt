@@ -5,14 +5,14 @@
 package tech.annexflow.fmath.fraction.core
 
 /**
- * A private class representing a read-only view of a mutable arithmetical fraction.
+ * A class representing a read-only view of a mutable arithmetical fraction.
  *
  * @param Numerator The type of the numerator.
  * @param Denominator The type of the denominator.
  * @property mutableFraction The underlying mutable arithmetical fraction.
  */
 class ReadOnlyArithmeticalFraction<Numerator, Denominator>(
-    val mutableFraction: MutableArithmeticalFraction<Numerator, Denominator>
+    internal val mutableFraction: MutableArithmeticalFraction<Numerator, Denominator>
 ) : ArithmeticalFraction<Numerator, Denominator> by mutableFraction {
 
     /**

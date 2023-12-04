@@ -1,3 +1,5 @@
+@file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE")
+
 package tech.annexflow.fmath.fraction.primitive
 
 import tech.annexflow.fmath.fraction.core.ReadOnlyArithmeticalFraction
